@@ -1,28 +1,48 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is a demo of sidekiq mailer class not returning the jid when pushed into a serialized active record field.
 
-Things you may want to cover:
+To test.
 
-* Ruby version
+Start server:
+<tt>foreman start</tt>
 
-* System dependencies
+<tt>rails c</tt>
 
-* Configuration
+<tt>Foo.new.do_job</tt>
 
-* Database creation
+Expected logging output(obviously the job ids will change.)
 
-* Database initialization
+```
+s has been pushed
+["s"]
+["s"]
+normal worker has been pushed
+["s", "2f25cf64742687a1c03848cc"]
+["s", "4174ade227e0e4a0fda1be3b"]
+mailer worker id pushed
+["s", "2f25cf64742687a1c03848cc", "e6cd96eacbd8d9532cc66502"]
+["s", "4174ade227e0e4a0fda1be3b", "07ab4540d7916ea07aae7a70"]
+```
 
-* How to run the test suite
+Actual output:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
 
-* Deployment instructions
+s has been pushed
+["s"]
+["s"]
+normal worker has been pushed
+["s", "81bec7fc6d9409f9fdf4fc28"]
+["s", "27200cb1b9dbc575f3583682"]
+mailer worker id pushed
+["s", "81bec7fc6d9409f9fdf4fc28"]
+["s", "27200cb1b9dbc575f3583682", "615c203e5fb82eeaa22ccc43"]
 
-* ...
+```
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+No language indicated, so no syntax highlighting. 
+But let's throw in a <b>tag</b>.
+```
