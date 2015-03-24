@@ -34,3 +34,7 @@ Actual output:
     mailer worker id pushed
     ["s", "81bec7fc6d9409f9fdf4fc28"]
     ["s", "27200cb1b9dbc575f3583682", "615c203e5fb82eeaa22ccc43"]
+
+== Stackoverflow
+This repo was created in conjunction with this (stackoverflow)[http://stackoverflow.com/questions/28897510/odd-behaviour-with-sidekiq-returned-jid-on-a-mailer-when-pushing-into-a-serialis] post and has been answered. See for more details.
+
